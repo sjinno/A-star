@@ -4,10 +4,8 @@ from constants import ROWS
 
 def main(win, size):
     grids = make_grids(ROWS, size)
-
     start = None
     end = None
-
     run = True
 
     while run:

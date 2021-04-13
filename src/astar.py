@@ -42,10 +42,6 @@ def astar_search(draw, grid, start, end):
     open_set_hash = {start}
 
     while not open_set.empty():
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
         current = open_set.get()[2]
         open_set_hash.remove(current)
 
@@ -98,11 +94,9 @@ def draw_grids(win, rows, size):
 
 def draw(win, grids, rows, size):
     win.fill(WHITE)
-
     for row in grids:
         for cell in row:
             cell.draw(win)
-
     draw_grids(win, rows, size)
     pygame.display.update()
 
@@ -110,8 +104,6 @@ def draw(win, grids, rows, size):
 def get_clicked_pos(pos, rows, size):
     gap = size // rows
     y, x = pos
-
     row = y // gap
     col = x // gap
-
     return row, col
