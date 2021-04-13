@@ -1,3 +1,4 @@
+# Color constants:
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
@@ -9,5 +10,6 @@ ORANGE = (255, 165, 0)
 TURQUOISE = (64, 224, 208)
 YELLOW = (255, 255, 0)
 
+# Window size information:
 SIZE = 800
 ROWS = 50

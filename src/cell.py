@@ -14,16 +14,16 @@ class Cell:
         self.size = size
         self.total_rows = total_rows
 
-    def get_pos(self):
+    def get_location(self):
         return self.row, self.col
-
-    def is_closed(self):
-        return self.color == RED
 
     def is_open(self):
         return self.color == GREEN
 
-    def is_block(self):
+    def is_closed(self):
+        return self.color == RED
+
+    def is_blocked(self):
         return self.color == BLACK
 
     def is_start(self):
@@ -60,16 +60,16 @@ class Cell:
     def update_neighbors(self, grid):
         self.neighbors = []
         # Up
-        if self.row > 0 and not grid[self.row - 1][self.col].is_block():
+        if self.row > 0 and not grid[self.row - 1][self.col].is_blocked():
             self.neighbors.append(grid[self.row - 1][self.col])
         # Down
-        if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_block():
+        if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_blocked():
             self.neighbors.append(grid[self.row + 1][self.col])
         # Left
-        if self.col > 0 and not grid[self.row][self.col - 1].is_block():
+        if self.col > 0 and not grid[self.row][self.col - 1].is_blocked():
             self.neighbors.append(grid[self.row][self.col - 1])
         # Right
-        if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_block():
+        if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_blocked():
             self.neighbors.append(grid[self.row][self.col + 1])
 
     def __lt__(self, other):
